@@ -255,7 +255,7 @@ function changePage(path) {
                 RM += "Coliseum";
             }
         }
-        if (document.getElementById('gamemode').value == "miniarena") {
+        if (document.getElementById('gamemode').value == "zombies") {
             if (rand == 1) {
                 RM += "Apocalypse";
             }
