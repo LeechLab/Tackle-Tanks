@@ -294,6 +294,7 @@ function changePage(path) {
             if (rand == 13) {
                 RM += "Horror";
             }
+            host_data["com"] == "random";
         }
         if (host_data['ds'] == true){
             RM += " (24/7)";
@@ -304,9 +305,6 @@ function changePage(path) {
         }
         if (host_data["ppg"] == false) {
             host_data["room_name"] = makeid(8);
-        }
-        if (host_data["gm"] == "zombies") {
-            host_data["com"] == "random";
         }
         var change = JSON.parse(localStorage.getItem("TT_Data"));
         change["host_data"] = host_data;
