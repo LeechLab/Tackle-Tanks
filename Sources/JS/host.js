@@ -306,8 +306,8 @@ function changePage(path) {
         if (host_data["ppg"] == false) {
             host_data["room_name"] = makeid(8);
         }
-        host_data["tl"] = document.getElementById("time-limit").value;
-        host_data["noppt"] = document.getElementById("numofplayers").value;
+        host_data["tl"] = parseInt(document.getElementById("time-limit").value);
+        host_data["noppt"] = parseInt(document.getElementById("numofplayers").value);
         var change = JSON.parse(localStorage.getItem("TT_Data"));
         change["host_data"] = host_data;
         localStorage.setItem("TT_Data", JSON.stringify(change));
