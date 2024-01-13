@@ -6,7 +6,7 @@ var host_data = {
     "sm":"grasslands",
     "gm":"teamdeathmatch",
     "tl":15,
-    "noppt": 100,
+    "noppt": 50,
     "syt":true,
     "at":"101112131415161718192021222324",
     "bots":true,
@@ -306,6 +306,8 @@ function changePage(path) {
         if (host_data["ppg"] == false) {
             host_data["room_name"] = makeid(8);
         }
+        host_data["tl"] = document.getElementById("time-limit").value;
+        host_data["noppt"] = document.getElementById("numofplayers").value;
         var change = JSON.parse(localStorage.getItem("TT_Data"));
         change["host_data"] = host_data;
         localStorage.setItem("TT_Data", JSON.stringify(change));
