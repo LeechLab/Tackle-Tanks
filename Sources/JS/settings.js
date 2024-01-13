@@ -25,7 +25,7 @@ function reset(){
             "Detonate":"x",
             "Hide-Chat":"t",
             "Chat":"ENTER",
-            "Menu":"TAB",
+            "Menu":"g",
         }
         document.getElementById("resetr").innerText = "RESETTING...";
         setTimeout(function(){
@@ -257,7 +257,7 @@ if (localStorage.getItem("TT_Data") != null) {
         "Detonate":"x",
         "Hide-Chat":"t",
         "Chat":"ENTER",
-        "Menu":"TAB",
+        "Menu":"g",
     }
     SAVE_LINE("Settings", Settings);
 }
