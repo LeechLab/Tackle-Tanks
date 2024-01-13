@@ -42,7 +42,7 @@ document.getElementById('gamemode').onchange = (event) => {
     change_ms(document.getElementById('gamemode').value);
     change_mp(document.getElementById('gamemode').value);
     if (document.getElementById('gamemode').value != "zombies" && was){
-        document.getElementById('select').src = 'HTML_images/grasslands.png';
+        document.getElementById('select').src = 'HTML_images/'+document.getElementById('gamemode').value+'.png';
     }
     if (document.getElementById('gamemode').value == "teamdeathmatch" || document.getElementById('gamemode').value == "capturebases"){
         if (document.getElementById("numofplayers").value % 2 == 1) {
