@@ -115,7 +115,7 @@ function GET_FILE(id) {
 }
 async function endless_checker() {
   while (true) {
-    await new Promise((resolve) => setTimeout(resolve, 50));
+    await new Promise((resolve) => setTimeout(resolve, 10000));
     let leave = await Leave();
     let data = await ScrapAdder();
   }
