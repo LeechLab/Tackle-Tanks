@@ -59,8 +59,10 @@ function ScrapAdder() {
     const store = transaction.objectStore("keyvaluepairs");
     store.get("Scraps").onsuccess = function (event) {
       var b = event.target.result;
-      SAVE_LINE("Score", GET_FILE("Score") + b-1);
-      store.delete("Scraps");
+      if (b != null){
+        SAVE_LINE("Score", GET_FILE("Score") + b-1);
+        store.delete("Scraps");
+      }
     };
     transaction.oncomplete = function () {
       db.close();
@@ -76,22 +78,24 @@ function Leave() {
       const store = transaction.objectStore("keyvaluepairs");
       store.get("leaveReason").onsuccess = function (event) {
         var b = event.target.result;
-        if (b != "game done") {
-          if (b.includes("disconnect")) {
-            host_data["room_name"] = "Disconnected from Signaling Server!";
-          } else if (b.includes("Host kicked")) {
-            host_data["room_name"] = "Host kicked you!";
-          } else if (b.includes("own volition")) {
-            host_data["room_name"] = "";
-          } else if (b.includes("host new game not detected")) {
-            host_data["room_name"] = "Host new game not detected (Rare Error!)";
-          }else{
-            host_data["room_name"] = "An error has occurred!";
+        if (b != null){
+          if (b != "game done") {
+            if (b.includes("disconnect")) {
+              host_data["room_name"] = "Disconnected from Signaling Server!";
+            } else if (b.includes("Host kicked")) {
+              host_data["room_name"] = "Host kicked you!";
+            } else if (b.includes("own volition")) {
+              host_data["room_name"] = "";
+            } else if (b.includes("host new game not detected")) {
+              host_data["room_name"] = "Host new game not detected (Rare Error!)";
+            }else{
+              host_data["room_name"] = "An error has occurred!";
+            }
+            SAVE_LINE("host_data", host_data);
+            window.location.href = "index.html";
           }
-          SAVE_LINE("host_data", host_data);
-          window.location.href = "index.html";
+          store.delete("leaveReason");
         }
-        store.delete("leaveReason");
         return resolve(b);
       };
       transaction.oncomplete = function () {
