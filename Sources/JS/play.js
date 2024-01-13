@@ -104,6 +104,7 @@ async function endless_checker() {
       } else if (leave.includes("Host kicked")) {
         host_data["room_name"] = "Host kicked you!";
       } else if (leave.includes("own volition")) {
+        host_data["room_name"] = "";
       } else if (leave.includes("host new game not detected")) {
         host_data["room_name"] = "Host new game not detected (Rare Error!)";
       }else{
