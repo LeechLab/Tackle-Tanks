@@ -294,7 +294,7 @@ function changePage(path) {
             if (rand == 13) {
                 RM += "Horror";
             }
-            host_data["com"] == "random";
+            host_data["com"] = "random";
         }
         if (host_data['ds'] == true){
             RM += " (24/7)";
