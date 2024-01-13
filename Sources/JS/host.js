@@ -130,8 +130,8 @@ function GET_FILE(id){
 function changePage(path) {
     click.play();
     if (path == "play.html") {
-        RM = GET_FILE("Username") + "'s ";
-        let rand = Math.ceil(Math.random() * 12)+1;
+        RM = GET_FILE("Username") + " ";
+        let rand = Math.floor((Math.random() * 13))+1;
         if (document.getElementById('gamemode').value == "teamdeathmatch") {         
             if (rand == 1) {
                 RM += "Battle";
@@ -143,7 +143,7 @@ function changePage(path) {
                 RM += "Clash";
             }
             if (rand == 4) {
-                RM += "Fight";
+                RM += "Bettlefeild";
             }
             if (rand == 5) {
                 RM += "Deathmatch";
@@ -295,6 +295,9 @@ function changePage(path) {
             if (rand == 13) {
                 RM += "Horror";
             }
+        }
+        if (host_data['ds'] == true){
+            RM += " (24/7)";
         }
         host_data["room_name"] = RM;
         if (host_data["gm"] != "teamdeathmatch" && host_data["gm"] != "capturebases") {
