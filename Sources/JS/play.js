@@ -24,7 +24,10 @@ const DBDeleteRequest = indexedDB.deleteDatabase("c3-localstorage-29j20n49g4z");
 const DBDeleteRequest2 = indexedDB.deleteDatabase(
   "c3-localstorage-7d0thul63rw"
 );
-
+window.addEventListener('beforeunload', (event) => {
+  event.preventDefault();
+  event.returnValue = '';
+});
 DBDeleteRequest.onsuccess = function (event) {
   const request = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
   var data = JSON.parse(localStorage.getItem("TT_Data"));
