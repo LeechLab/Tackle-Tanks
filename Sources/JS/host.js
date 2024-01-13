@@ -124,7 +124,6 @@ document.getElementById("numofplayers").addEventListener("change", function () {
 //FUNCTION
 function GET_FILE(id){
     var data = JSON.parse(localStorage.getItem("TT_Data"));
-    console.log(data["Username"]);
     return data[id];
 }
 function changePage(path) {
@@ -313,8 +312,7 @@ function changePage(path) {
         change["host_data"] = host_data;
         localStorage.setItem("TT_Data", JSON.stringify(change));
     }
-    console.log(localStorage.getItem("TT_Data"));
-    //window.location.href=path;
+    window.location.href=path;
 }
 function clicked(id) {
     click.play();
