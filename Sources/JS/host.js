@@ -131,7 +131,7 @@ function changePage(path) {
     click.play();
     if (path == "play.html") {
         RM = GET_FILE("Username") + "'s ";
-        let rand = Math.ceil(Math.random() * 13);
+        let rand = Math.ceil(Math.random() * 12)+1;
         if (document.getElementById('gamemode').value == "teamdeathmatch") {         
             if (rand == 1) {
                 RM += "Battle";
