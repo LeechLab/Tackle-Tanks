@@ -81,7 +81,7 @@ function Leave() {
         db.close();
       };
     };
-  )};
+  });
 }
 function SAVE_LINE(id, data) {
   var change = JSON.parse(localStorage.getItem("TT_Data"));
