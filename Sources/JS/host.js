@@ -310,7 +310,8 @@ function changePage(path) {
         change["host_data"] = host_data;
         localStorage.setItem("TT_Data", JSON.stringify(change));
     }
-    window.location.href=path;
+    console.log(localStorage.getItem("TT_Data"));
+    //window.location.href=path;
 }
 function clicked(id) {
     click.play();
