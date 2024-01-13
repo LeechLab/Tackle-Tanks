@@ -25,6 +25,8 @@ const DBDeleteRequest2 = indexedDB.deleteDatabase(
   "c3-localstorage-7d0thul63rw"
 );
 window.addEventListener('beforeunload', (event) => {
+  host_data["room_name"] = "";
+  SAVE_LINE("host_data", host_data);
   event.preventDefault();
   event.returnValue = '';
 });
