@@ -118,6 +118,7 @@ if (localStorage.getItem("TT_Data") == null) {
             "hm": true,
             "ppg": true,
             "supposed_2_B_peer": false,
+            "room_name" ="";
         }
     };
     localStorage.setItem("TT_Data", JSON.stringify(userData));
@@ -131,3 +132,6 @@ if (GET_FILE("Equipped-Skin") == 59 || GET_FILE("Equipped-Skin") > 78) {
 } else {
     document.getElementById("skin").src = "HTML_images/Skins/" + GET_FILE("Equipped-Skin") + ".svg";
 }
+let a = GET_FILE("host_data");
+document.getElementById("username-error").style.visibility = "visible";
+document.getElementById("username-error").innerHTML = a["room_name"];
