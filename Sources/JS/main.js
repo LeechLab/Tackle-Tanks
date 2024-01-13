@@ -118,7 +118,7 @@ if (localStorage.getItem("TT_Data") == null) {
             "hm": true,
             "ppg": true,
             "supposed_2_B_peer": false,
-            "room_name" ="",
+            "room_name":"",
         }
     };
     localStorage.setItem("TT_Data", JSON.stringify(userData));
