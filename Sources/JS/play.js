@@ -47,35 +47,38 @@ DBDeleteRequest.onsuccess = function (event) {
   };
 };
 function ScrapAdder() {
+  var open = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
+  open.onsuccess = function () {
+    const db = open.result;
+    const transaction = db.transaction("keyvaluepairs", "readwrite");
+    const store = transaction.objectStore("keyvaluepairs");
+    store.get("Scraps").onsuccess = function (event) {
+      var b = event.target.result;
+      store.delete("Scraps");
+      return resolve(GET_FILE("Score") + b-1);
+    };
+    transaction.oncomplete = function () {
+      db.close();
+    };
+  };
+}
+function Leave() {
   return new Promise(function (resolve) {
     var open = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
     open.onsuccess = function () {
       const db = open.result;
       const transaction = db.transaction("keyvaluepairs", "readwrite");
       const store = transaction.objectStore("keyvaluepairs");
-      store.get("Scraps").onsuccess = function (event) {
-        store.delete("Scraps");
-        return resolve(GET_FILE("Score") + event.target.result);
+      store.get("leaveReason").onsuccess = function (event) {
+        var b = event.target.result;
+        store.delete("leaveReason");
+        return resolve(b);
       };
       transaction.oncomplete = function () {
         db.close();
       };
     };
-  });
-}
-function Leave() {
-  var open = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
-  open.onsuccess = function () {
-    const db = open.result;
-    const transaction = db.transaction("keyvaluepairs", "readwrite");
-    const store = transaction.objectStore("keyvaluepairs");
-    store.get("Leave").onsuccess = function (event) {
-      return event.target.result;
-    };
-    transaction.oncomplete = function () {
-      db.close();
-    };
-  };
+  )};
 }
 function SAVE_LINE(id, data) {
   var change = JSON.parse(localStorage.getItem("TT_Data"));
@@ -89,23 +92,22 @@ function GET_FILE(id) {
 async function endless_checker() {
   while (true) {
     await new Promise((resolve) => setTimeout(resolve, 50));
+    let leave = await Leave();
     let data = await ScrapAdder();
     SAVE_LINE("Score", data);
-    let leave = await Leave();
-    if (leave != undefined) {
+    if (leave != "game done") {
       if (leave.includes("disconnect")) {
-        host_data["room_name"] = "Disconnected from Signaling Server";
-        SAVE_LINE("host_data", host_data);
-        window.location.href = "index.html";
-      } else if (leave.includes("error")) {
-        host_data["room_name"] = "Some form of Error Occurred";
-        window.location.href = "index.html";
+        host_data["room_name"] = "Disconnected from Signaling Server!";
+      } else if (leave.includes("Host kicked")) {
+        host_data["room_name"] = "Host kicked you!";
       } else if (leave.includes("own volition")) {
-        window.location.href = "index.html";
       } else if (leave.includes("host new game not detected")) {
         host_data["room_name"] = "Host new game not detected (Rare Error!)";
-        window.location.href = "index.html";
+      }else{
+        host_data["room_name"] = "An error has occurred!";
       }
+      SAVE_LINE("host_data", host_data);
+      window.location.href = "index.html";
     }
   }
 }
