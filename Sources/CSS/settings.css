@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+:root {
+    --primary-color: #ADD49e;
+    --secondary-color: #331b00;
+    --button-background: #ff8000a0;
+    --button-border: #ff8000;
+    --button-shadow: #331b0087;
+    --button2-background: #249900a0;
+    --settings-background:#39bb115d;
+    --button2-border: #249900;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: 'Lilita One', cursive;
+    font-weight: 200;
+    width: 100%;
+}
+.icon {
+    width: 40px;
+    height: 40px;
+}
+.close{
+    width: 70px;
+    height: 70px;
+    position:absolute;
+    border-radius: 1vh;
+    box-sizing: border-box;
+    border: 5px solid var(--button-border);
+    background-color:var(--button-background);
+    box-shadow: -6px 6px var(--button-shadow);
+    transition: 0.5s;
+    right: 5vh;
+    top:5vh;
+    z-index:2;
+}
+body {
+    color: #333;
+    line-height: 1.6;
+    font-weight: 200;
+    background-color: var(--primary-color);
+    overflow: hidden;
+}
+
+.settings {
+    position: absolute;
+}
+.container {
+    max-width: 1500px;
+    margin: 100px auto;
+    overflow: visible;
+    padding: 10px 100px;
+}
+.selector {
+    margin: 2% 2%;
+    max-width: 96%;
+    width:96%;
+    overflow-y: auto;
+    height: 92vh;
+    background-color: var(--settings-background);
+    border-radius: 1vh;
+    border: 5px solid var(--button2-border);
+    box-shadow: -6px 6px var(--button-shadow);
+}
+h2{
+    font-size:4vh;
+    font-weight: 900;
+    color: #333;
+}
+.bText{
+    color: #333;
+    font-size: 2.25vh;
+    transition: 0.5s;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2vh;
+    justify-content: center;
+    align-items: center;
+}
+.extra{
+    grid-template-columns: 2fr 1fr;
+}
+.vgrid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+}
+.outline2{
+    
+    border-radius: 1vh;
+    border: 5px solid #ff80007e;
+    background-color: #ff800042;
+    box-shadow: -6px 6px var(--button-shadow);
+    padding: 0.5vh 0.5vh;
+}
+.outline2:hover{
+    filter: brightness(0.85);
+}
+.outline:hover{
+    filter: brightness(0.85);
+}
+.outline{
+    border-radius: 1vh;
+    border: 5px solid var(--button2-border);
+    background-color: #00ff0d42;
+    box-shadow: -6px 6px var(--button-shadow);
+    padding: 0.5vh 0.5vh;
+}
+.setEdit{
+    border-radius: 1vh;
+    height:4vh;
+    border: 5px solid #333;
+    background-color: #ffffff6e;
+    transition: 0.5s;
+    color: #333;
+    font-size: 1.25vh;
+}
+h3 {
+    color: #333;
+    font-size: 1.75vh;
+    padding-top: 2vh;
+}
+h4{
+    color: #333;
+    font-size: 1.5vh;
+}
+.clear {
+    border-radius: 1vh;
+    border: 5px solid #ff0000bd;
+    background-color: #ff000049;
+    box-shadow: -6px 6px #4e000056;
+    padding: 0.5vh 0.5vh;
+    color:#500000;
+    font-size:1vh;
+}
+
+.clear:hover {
+    filter: brightness(0.85);
+}
+.SettingsEdit{
+    background-color: #ffffff42;
+    border-radius: 1vh;
+    padding: 0.5vh 0.5vh;
+    margin-top: 0.5vh;
+}
+.setEdit:hover {
+    background-color: #ffffff;
+    transition:0.5s;
+}
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    border-radius: 1vh;
+}
+.slider:hover{
+    filter: brightness(0.85);
+}
+
+.slider::-webkit-slider-runnable-track {
+    height: 1.5vh;
+    background: #ffffff;
+    border-radius: 1vh;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 1.5vh;
+    width: 1vh;
+    background-color: var(--button2-background);
+    border-radius: 1vh;
+    border: 5px solid var(--button2-border);
+    box-shadow: -407px 0 0 400px #333;
+}
+.clones{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1vh;
+    border: 5px solid #333;
+    background-color: #ffffff;
+    height:3vh;
+    transition: 0.5s;
+    font-size: 1vh;
+    padding-left: 1vh;
+    max-width:10vh;
+}
+.clones:hover{
+    filter: brightness(0.85);
+}
+.settings_editor{
+    overflow:hidden; 
+}
+::-webkit-scrollbar {
+    width: 1vh;
+    border-radius: 1vh;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 1vh;
+    border: 5px solid var(--button2-border);
+    background-color: #00ff0d42;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #00ff0d6c;
+    border: 5px solid #00ff0d;
+    border-radius: 1vh;
+}
+::-webkit-scrollbar-thumb:hover {
+    border: 5px solid #ff8800;
+    background-color: #ff88006c;
+}
