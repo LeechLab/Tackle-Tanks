@@ -86,7 +86,7 @@ if (localStorage.getItem("TT_Data") == null) {
             "Screen-Shake":true,
             "Dim-Flashbang":false,
             "Anonymized-Usernames":false,
-            "SFX":50,
+            "SFX":75,
             "Show-FPS": true,
             "Effects": true,
             "Particles": true,
