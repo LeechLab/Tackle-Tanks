@@ -102,7 +102,7 @@ if (localStorage.getItem("TT_Data") == null) {
             "Detonate":"x",
             "Hide-Chat":"t",
             "Chat":"ENTER",
-            "Menu":"TAB",
+            "Menu":"g",
         },
         "host_data": {
             "com": "mapvote",
