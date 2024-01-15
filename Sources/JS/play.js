@@ -104,7 +104,7 @@ function Leave() {
             SAVE_LINE("host_data", host_data);
             window.location.href = "index.html";
           }else{
-            let data = await ScrapAdder();
+            let data = ScrapAdder();
           }
         }
         store.delete("leaveReason");
