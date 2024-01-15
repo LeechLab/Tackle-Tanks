@@ -56,25 +56,27 @@ DBDeleteRequest.onsuccess = function (event) {
   };
 };
 function ScrapAdder() {
-  var open = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
-  open.onsuccess = function () {
-    const db = open.result;
-    const transaction = db.transaction("keyvaluepairs", "readwrite");
-    const store = transaction.objectStore("keyvaluepairs");
-    store.get("Scraps").onsuccess = function (event) {
-      var b = event.target.result;
-      if (checker == false){
-        if (b != null){
-          SAVE_LINE("Score", Math.round(GET_FILE("Score") + b-1));
-          store.delete("Scraps");
+  return new Promise(function (resolve) {
+    var open = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
+    open.onsuccess = function () {
+      const db = open.result;
+      const transaction = db.transaction("keyvaluepairs", "readwrite");
+      const store = transaction.objectStore("keyvaluepairs");
+      store.get("Scraps").onsuccess = function (event) {
+        var b = event.target.result;
+        if (checker == false){
+          if (b != null){
+            SAVE_LINE("Score", Math.round(GET_FILE("Score") + b-1));
+            store.delete("Scraps");
+          }
+          checker = true;
         }
-        checker = true;
-      }
+      };
+      transaction.oncomplete = function () {
+        db.close();
+      };
     };
-    transaction.oncomplete = function () {
-      db.close();
-    };
-  };
+  });
 }
 function Leave() {
   return new Promise(function (resolve) {
@@ -101,8 +103,11 @@ function Leave() {
             }
             SAVE_LINE("host_data", host_data);
             window.location.href = "index.html";
+          }else{
+            let data = await ScrapAdder();
           }
         }
+        store.delete("leaveReason");
         return resolve(event);
       };
       transaction.oncomplete = function () {
@@ -126,7 +131,6 @@ async function endless_checker() {
     checker = false;
     exit = true;
     let leave = await Leave();
-    let data = await ScrapAdder();
   }
 }
 document.getElementById("wrapper").src = "Game/game.html";
