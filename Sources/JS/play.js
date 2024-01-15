@@ -28,8 +28,6 @@ const DBDeleteRequest2 = indexedDB.deleteDatabase(
 );
 window.addEventListener('beforeunload', (event) => {
   if (exit){
-    host_data["room_name"] = "";
-    SAVE_LINE("host_data", host_data);
     event.preventDefault();
     event.returnValue = '';
   }
@@ -50,6 +48,8 @@ DBDeleteRequest.onsuccess = function (event) {
     const transaction = db.transaction("keyvaluepairs", "readwrite");
     const store = transaction.objectStore("keyvaluepairs");
     store.add(data, "a1");
+    host_data["room_name"] = "";
+    SAVE_LINE("host_data", host_data);
     transaction.oncomplete = function () {
       db.close();
     };
