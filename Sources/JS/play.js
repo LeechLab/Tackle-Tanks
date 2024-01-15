@@ -14,6 +14,7 @@ var host_data = {
   supposed_2_B_peer: false,
   room_name: "",
 };
+var checker = false;
 const indexedDB =
   window.indexedDB ||
   window.mozIndexedDB ||
@@ -59,9 +60,12 @@ function ScrapAdder() {
     const store = transaction.objectStore("keyvaluepairs");
     store.get("Scraps").onsuccess = function (event) {
       var b = event.target.result;
-      if (b != null){
-        SAVE_LINE("Score", GET_FILE("Score") + b-1);
-        store.delete("Scraps");
+      if (checker == false){
+        if (b != null){
+          SAVE_LINE("Score", Math.round(GET_FILE("Score") + b-1));
+          store.delete("Scraps");
+        }
+        checker = true;
       }
     };
     transaction.oncomplete = function () {
@@ -94,9 +98,10 @@ function Leave() {
             SAVE_LINE("host_data", host_data);
             window.location.href = "index.html";
           }
-          store.delete("leaveReason");
+          store.delete("leaveReason").onsuccess = function(event){
+            return resolve(event);
+          };
         }
-        return resolve(b);
       };
       transaction.oncomplete = function () {
         db.close();
@@ -115,7 +120,7 @@ function GET_FILE(id) {
 }
 async function endless_checker() {
   while (true) {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     let leave = await Leave();
     let data = await ScrapAdder();
   }
