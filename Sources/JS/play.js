@@ -14,6 +14,7 @@ var host_data = {
   supposed_2_B_peer: false,
   room_name: "",
 };
+var exit = true;
 var checker = false;
 const indexedDB =
   window.indexedDB ||
@@ -26,10 +27,12 @@ const DBDeleteRequest2 = indexedDB.deleteDatabase(
   "c3-localstorage-7d0thul63rw"
 );
 window.addEventListener('beforeunload', (event) => {
-  host_data["room_name"] = "";
-  SAVE_LINE("host_data", host_data);
-  event.preventDefault();
-  event.returnValue = '';
+  if (exit){
+    host_data["room_name"] = "";
+    SAVE_LINE("host_data", host_data);
+    event.preventDefault();
+    event.returnValue = '';
+  }
 });
 DBDeleteRequest.onsuccess = function (event) {
   const request = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
@@ -83,6 +86,7 @@ function Leave() {
       store.get("leaveReason").onsuccess = function (event) {
         var b = event.target.result;
         if (b != null){
+          exit = false;
           if (b != "game done") {
             if (b.includes("disconnect")) {
               host_data["room_name"] = "Disconnected from Signaling Server!";
@@ -98,10 +102,8 @@ function Leave() {
             SAVE_LINE("host_data", host_data);
             window.location.href = "index.html";
           }
-          store.delete("leaveReason").onsuccess = function(event){
-            return resolve(event);
-          };
         }
+        return resolve(event);
       };
       transaction.oncomplete = function () {
         db.close();
@@ -121,6 +123,8 @@ function GET_FILE(id) {
 async function endless_checker() {
   while (true) {
     await new Promise((resolve) => setTimeout(resolve, 2000));
+    checker = false;
+    exit = true;
     let leave = await Leave();
     let data = await ScrapAdder();
   }
