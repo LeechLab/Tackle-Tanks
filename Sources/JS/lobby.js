@@ -272,7 +272,6 @@ function private() {
     if (game_list[i][0].contains(response)) {
       game_to_join = game_list[i];
       room_found = true;
-      break;
     }
   }
   if (room_found) {
