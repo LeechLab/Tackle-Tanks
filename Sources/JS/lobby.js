@@ -269,7 +269,7 @@ function private() {
     "PRIVATE ROOM:\n- If you clicked here by mistake, click cancel\n- If you want to create your own private game, click 'Host Game'\n- Otherwise,\nENTER ROOM CODE:"
   );
   for (let i = 0; i < game_list.length; i++) {
-    if (game_list[i][0].contains(response)) {
+    if (game_list[i][0].includes(response)) {
       game_to_join = game_list[i];
       room_found = true;
     }
