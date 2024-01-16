@@ -20,7 +20,7 @@ function changePage(path) {
       hm: false,
       ppg: false,
       supposed_2_B_peer: true,
-      room_name:
+      room_name:/*
         game_list[game_to_join][0].toString() +
         "," +
         game_list[game_to_join][1].toString() +
@@ -31,7 +31,7 @@ function changePage(path) {
         "," +
         game_list[game_to_join][4].toString() +
         "," +
-        game_list[game_to_join][5].toString(),
+        game_list[game_to_join][5].toString()*/"",
     };
     var change = JSON.parse(localStorage.getItem("TT_Data"));
     change["host_data"] = host_data;
@@ -129,6 +129,7 @@ function load_all(array) {
   if (lessthanzero) {
     document.getElementById("noone").style.display = "block";
   }
+  console.log(game_list);
 }
 function changeGame(n) {
   click.play();
