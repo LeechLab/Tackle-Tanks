@@ -46,36 +46,37 @@ const indexedDB =
   window.msIndexedDB ||
   window.shimIndexedDM;
 const DBDeleteRequest = indexedDB.deleteDatabase("c3-localstorage-7d0thul63rw");
-
-setTimeout(function () {
+DBDeleteRequest.onsuccess = function () {
   const request = indexedDB.open("c3-localstorage-7d0thul63rw", 2);
+}
 
-  request.onerror = function (event) {
+request.onerror = function (event) {
     document.getElementById("ERROR").style.display = "block";
     document.getElementById("load").style.display = "none";
-  };
-  request.onsuccess = function () {
-    const db = request.result;
-    const transaction = db.transaction("keyvaluepairs", "readonly");
-    const store = transaction.objectStore("keyvaluepairs");
-    while (true){
-      setTimeout(() => {
-        var idQuery = store.getAll();
-        idQuery.onsuccess = function () {
-            load_all(idQuery.result);
-        };
-        idQuery.onerror = function () {
-          document.getElementById("ERROR").style.display = "block";
-          document.getElementById("load").style.display = "none";
-        };
-        console.log("refreshed");
-      }, 3000);
-    }
-    transaction.oncomplete = function () {
-      db.close();
-    };
-  };
-}, 1500);
+};
+request.onsuccess = function () {
+  setTimeout(function () {
+      const db = request.result;
+      const transaction = db.transaction("keyvaluepairs", "readonly");
+      const store = transaction.objectStore("keyvaluepairs");
+      while (true){
+        setTimeout(() => {
+          var idQuery = store.getAll();
+          idQuery.onsuccess = function () {
+              load_all(idQuery.result);
+          };
+          idQuery.onerror = function () {
+            document.getElementById("ERROR").style.display = "block";
+            document.getElementById("load").style.display = "none";
+          };
+          console.log("refreshed");
+        }, 3000);
+      }
+      transaction.oncomplete = function () {
+        db.close();
+      };
+  }, 1500);
+};
 //TEST RUN: load_all(["[L333ch's Battle,2,0,0,0,0,600,540,0]", "[Goofy's Crusade,1,5,1,0,1,600,576,0]", "[WWWWWWWWWWWWWWWWWWWW's Zombiepalooza,3,5,1,0,1,510,510,0]"]);
 function load_all(array) {
   game_list = [];
