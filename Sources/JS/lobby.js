@@ -72,7 +72,7 @@ DBDeleteRequest.onsuccess = function () {
         }
         transaction.oncomplete = function () {
           db.close();
-        };*/
+        };
     }, 1500);
   };
 }
