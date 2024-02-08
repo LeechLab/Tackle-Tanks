@@ -55,7 +55,8 @@ DBDeleteRequest.onsuccess = function () {
   request.onsuccess = function () {
     setTimeout(function () {
         const db = request.result;
-        const transaction = db.transaction("keyvaluepairs", "readonly");
+        console.log(request.result);
+        /*const transaction = db.transaction("keyvaluepairs", "readonly");
         const store = transaction.objectStore("keyvaluepairs");
         while (true){
           setTimeout(() => {
@@ -72,7 +73,7 @@ DBDeleteRequest.onsuccess = function () {
         }
         transaction.oncomplete = function () {
           db.close();
-        };
+        };*/
     }, 1500);
   };
 }
