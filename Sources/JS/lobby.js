@@ -52,9 +52,9 @@ DBDeleteRequest.onsuccess = function () {
       document.getElementById("ERROR").style.display = "block";
       document.getElementById("load").style.display = "none";
   };
-  request.onsuccess = function () {
+  request.onsuccess = (event) => {
     setTimeout(function () {
-        const db = request.result;
+        const db = event.target.result;
         const transaction = db.transaction("keyvaluepairs", "readwrite");
         const store = transaction.objectStore("keyvaluepairs");
         while (true){
