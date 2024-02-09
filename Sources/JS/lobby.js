@@ -50,8 +50,9 @@ request.onerror = function (event) {
   document.getElementById("ERROR").style.display = "block";
   document.getElementById("load").style.display = "none";
 }
-request.onsuccess = function() {
-  setTimeout(function () {
+request.onsuccess = async function() {
+  
+  await setTimeout(function () {
     const db = request.result;
     const transaction = db.transaction("keyvaluepairs", "readwrite");
     const store = transaction.objectStore("keyvaluepairs");
