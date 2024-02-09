@@ -45,16 +45,16 @@ const indexedDB =
   window.webkitIndexedDB ||
   window.msIndexedDB ||
   window.shimIndexedDM;
-const request = indexedDB.open("c3-localstorage-7d0thul63rw", 2);
-request.onerror = function (event) {
-  document.getElementById("ERROR").style.display = "block";
-  document.getElementById("load").style.display = "none";
-}
-request.onsuccess =  function() {
-  intervalID = setInterval(function () {
-    const db = request.result;
-    const transaction = db.transaction("keyvaluepairs", "readwrite");
-    const store = transaction.objectStore("keyvaluepairs");
+intervalID = setInterval(function () {
+  var request = indexedDB.open("c3-localstorage-7d0thul63rw", 2);
+  request.onerror = function (event) {
+    document.getElementById("ERROR").style.display = "block";
+    document.getElementById("load").style.display = "none";
+  }
+  request.onsuccess =  function() {
+    var db = request.result;
+    var transaction = db.transaction("keyvaluepairs", "readwrite");
+    var store = transaction.objectStore("keyvaluepairs");
     var idQuery = store.getAll();
     idQuery.onsuccess = function () {
       load_all(idQuery.result);
@@ -63,12 +63,12 @@ request.onsuccess =  function() {
       document.getElementById("ERROR").style.display = "block";
       document.getElementById("load").style.display = "none";
     };
-    console.log("refreshed");
+    console.log("[TT] Automatically Refreshed");
     transaction.oncomplete = function () {
       db.close();
     };
-  }, 1500);
-};
+  };
+}, 1500);
 //TEST RUN: load_all(["[L333ch's Battle,2,0,0,0,0,600,540,0]", "[Goofy's Crusade,1,5,1,0,1,600,576,0]", "[WWWWWWWWWWWWWWWWWWWW's Zombiepalooza,3,5,1,0,1,510,510,0]"]);
 function load_all(array) {
   game_list = [];
