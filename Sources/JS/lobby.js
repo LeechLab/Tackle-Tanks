@@ -50,14 +50,6 @@ request.onerror = function (event) {
   document.getElementById("ERROR").style.display = "block";
   document.getElementById("load").style.display = "none";
 }
-
-function repeatEverySecond() {
-  intervalID = setInterval(sendMessage, 1000);
-}
-
-function sendMessage() {
-  console.log(“One second elapsed.”);
-}
 request.onsuccess =  function() {
   intervalID = setInterval(function () {
     const db = request.result;
