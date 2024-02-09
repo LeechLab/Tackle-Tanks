@@ -50,25 +50,28 @@ request.onerror = function (event) {
   document.getElementById("ERROR").style.display = "block";
   document.getElementById("load").style.display = "none";
 }
-request.onsuccess = async function() {
-  
- await new Promise(resolve => setTimeout(function () {
+
+function repeatEverySecond() {
+  intervalID = setInterval(sendMessage, 1000);
+}
+
+function sendMessage() {
+  console.log(“One second elapsed.”);
+}
+request.onsuccess =  function() {
+  intervalID = setInterval(function () {
     const db = request.result;
     const transaction = db.transaction("keyvaluepairs", "readwrite");
     const store = transaction.objectStore("keyvaluepairs");
-    while (true){
-      setTimeout(() => {
-        var idQuery = store.getAll();
-        idQuery.onsuccess = function () {
-          load_all(idQuery.result);
-        };
-        idQuery.onerror = function () {
-          document.getElementById("ERROR").style.display = "block";
-          document.getElementById("load").style.display = "none";
-        };
-        console.log("refreshed");
-      }, 3000);
-    }
+    var idQuery = store.getAll();
+    idQuery.onsuccess = function () {
+      load_all(idQuery.result);
+    };
+    idQuery.onerror = function () {
+      document.getElementById("ERROR").style.display = "block";
+      document.getElementById("load").style.display = "none";
+    };
+    console.log("refreshed");
     transaction.oncomplete = function () {
       db.close();
     };
