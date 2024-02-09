@@ -45,6 +45,7 @@ const indexedDB =
   window.webkitIndexedDB ||
   window.msIndexedDB ||
   window.shimIndexedDM;
+indexedDB.deleteDatabase("c3-localstorage-7d0thul63rw");
 intervalID = setInterval(function () {
   var request = indexedDB.open("c3-localstorage-7d0thul63rw", 2);
   request.onerror = function (event) {
