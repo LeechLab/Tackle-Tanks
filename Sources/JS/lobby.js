@@ -1,4 +1,4 @@
-varr game_list = [];
+var game_list = [];
 var game_to_join = 0;
 var click = new Audio("HTML_images/Click.wav"); //click.play();
 document.getElementById("ERROR").style.display = "none";
