@@ -45,7 +45,8 @@ const indexedDB =
   window.webkitIndexedDB ||
   window.msIndexedDB ||
   window.shimIndexedDM;
-intervalID = setInterval(function () {
+setTimeout(() => {
+  intervalID = setInterval(function () {
   var request = indexedDB.open("c3-localstorage-7d0thul63rw", 2);
   request.onerror = function (event) {
     document.getElementById("ERROR").style.display = "block";
@@ -57,7 +58,11 @@ intervalID = setInterval(function () {
     var store = transaction.objectStore("keyvaluepairs");
     var idQuery = store.getAll();
     idQuery.onsuccess = function () {
+      document.getElementById("ERROR").style.display = "none";
+      document.getElementById("load").style.display = "none";
+      document.getElementById("noone").style.display = "none";
       load_all(idQuery.result);
+      idQuery = null;
     };
     idQuery.onerror = function () {
       document.getElementById("ERROR").style.display = "block";
@@ -68,7 +73,8 @@ intervalID = setInterval(function () {
       db.close();
     };
   };
-}, 1500);
+}, 5000);
+
 //TEST RUN: load_all(["[L333ch's Battle,2,0,0,0,0,600,540,0]", "[Goofy's Crusade,1,5,1,0,1,600,576,0]", "[WWWWWWWWWWWWWWWWWWWW's Zombiepalooza,3,5,1,0,1,510,510,0]"]);
 function load_all(array) {
   game_list = [];
