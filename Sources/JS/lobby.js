@@ -73,7 +73,7 @@ setTimeout(function() {
         db.close();
       };
     };
-  }
+  },1500);
 }, 5000);
 
 //TEST RUN: load_all(["[L333ch's Battle,2,0,0,0,0,600,540,0]", "[Goofy's Crusade,1,5,1,0,1,600,576,0]", "[WWWWWWWWWWWWWWWWWWWW's Zombiepalooza,3,5,1,0,1,510,510,0]"]);
