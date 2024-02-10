@@ -1,4 +1,4 @@
-var game_list = [];
+v10ar game_list = [];
 var game_to_join = 0;
 var click = new Audio("HTML_images/Click.wav"); //click.play();
 document.getElementById("ERROR").style.display = "none";
@@ -61,8 +61,11 @@ setTimeout(function() {
         document.getElementById("ERROR").style.display = "none";
         document.getElementById("load").style.display = "none";
         document.getElementById("noone").style.display = "none";
+        var refresh = document.getElementById("list");
+        while (refresh.firstChild) {
+          refresh.removeChild(refresh.lastChild);
+        }
         load_all(idQuery.result);
-        idQuery = null;
       };
       idQuery.onerror = function () {
         document.getElementById("ERROR").style.display = "block";
