@@ -142,7 +142,7 @@ function changePage(path) {
                 RM += "Clash";
             }
             if (rand == 4) {
-                RM += "Bettlefeild";
+                RM += "Battlefeild";
             }
             if (rand == 5) {
                 RM += "Deathmatch";
