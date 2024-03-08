@@ -55,6 +55,8 @@ setTimeout(function() {
     request.onerror = function (event) {
       document.getElementById("ERROR").style.display = "block";
       document.getElementById("load").style.display = "none";
+      db.close();
+      deleteRequest = indexedDB.deleteDatabase("c3-localstorage-7d0thul63rw", 2);
     }
     request.onsuccess =  function() {
       var db = request.result;
@@ -74,6 +76,8 @@ setTimeout(function() {
       idQuery.onerror = function () {
         document.getElementById("ERROR").style.display = "block";
         document.getElementById("load").style.display = "none";
+        db.close();
+        deleteRequest = indexedDB.deleteDatabase("c3-localstorage-7d0thul63rw", 2);
       };
       console.log("[TT] Automatically Refreshed");
       transaction.oncomplete = function () {
