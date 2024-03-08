@@ -242,7 +242,8 @@ h5{
     color:red;
     font-size:125%;
     text-align: center;
-    padding-top:5%;
+    margin-top: auto;
+    padding-bottom:5%;
 }
 .server{
     border-radius: 0.5vh;
