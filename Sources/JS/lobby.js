@@ -48,9 +48,6 @@ const indexedDB =
 var deleteRequest = indexedDB.deleteDatabase("c3-localstorage-7d0thul63rw", 2);
 setTimeout(function() {
   intervalID = setInterval(function () {
-    document.getElementById("ERROR").style.display = "block";
-    document.getElementById("load").style.display = "none";
-    document.getElementById("noone").style.display = "none";
     var request = indexedDB.open("c3-localstorage-7d0thul63rw", 2);
     request.onerror = function (event) {
       document.getElementById("ERROR").style.display = "block";
