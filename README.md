@@ -1,4 +1,4 @@
-# ![Tackle Tanks!](https://raw.githubusercontent.com/LeeechLabStudios/Tackle-Tanks/main/HTML_images/title.svg)
+# ![Tackle Tanks!](https://raw.githubusercontent.com/LeechLab/Tackle-Tanks/main/HTML_images/title.svg)
 Welcome to Tackle Tanks!
 
 This game is a **multiplayer tank game** created for causual players throughout the web. With a variety of gamemodes and tank classes to choose from, players are able to enjoy **competetive matches** based on their own interest.
@@ -6,7 +6,7 @@ This game is a **multiplayer tank game** created for causual players throughout 
 From **epic tank battles** to team building missions, players are incentivized to work together to **complete missions**.
 
 
-**PLAY TACKLE TANKS NOW! We need players!** [https://leeechlabstudios.github.io/Tackle-Tanks](https://leeechlabstudios.github.io/Tackle-Tanks)
+**PLAY TACKLE TANKS NOW! We need players!** [TackleTanks.io](https://leechlab.github.io/Tackle-Tanks)
 
 ## Modding
 **We do not care** if you create different versions of our game. We urge to share your modifications with the community! Make a seperate Repository to store files! **We plan to make our own mods as well!** Stay tuned for the folllowing:
@@ -18,3 +18,6 @@ From **epic tank battles** to team building missions, players are incentivized t
  - RC Car Racing Mod (A gamemode where people race using Mechanic's RC Car)
 
 If you have your own ideas, submit an issue to let us know or **create the mod yourself!**
+
+## Wiki
+[TackleTanks.io/guide.html](https://leechlab.github.io/Tackle-Tanks/guide.html)
