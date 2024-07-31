@@ -18,7 +18,7 @@ function vault(slide) {
   }
 }
 var treasureChest = "";
-var TREASURE_MAP = TT_EHK;
+var TREASURE_MAP =  process.env.TT_EHK;
 function toggle(dec, what) {
   treasureChest = dec;
   vault(what);
