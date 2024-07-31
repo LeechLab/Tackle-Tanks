@@ -30,7 +30,7 @@ function reset(){
         document.getElementById("resetr").innerText = "RESETTING...";
         setTimeout(function(){
             SAVE_LINE("Settings", Settings);
-            changePage("settings.html");
+            changePage("https://leechlab.github.io/Tackle-Tanks/settings.html");
         }, 500);
     }
 
@@ -41,7 +41,7 @@ function reset_all(){
         var clearB = confirm("Are you positive?");
         if (clearB){
             localStorage.removeItem("TT_Data");
-            changePage("index.html");
+            changePage("https://leechlab.github.io/Tackle-Tanks/index.html");
         }
     }
 }
