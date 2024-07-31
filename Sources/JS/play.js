@@ -102,7 +102,7 @@ async function endless_checker() {
       SAVE_LINE("Score", data);
     }
     let leave = await Leave();
-    if (leave != undefined) {
+    if (leave.length>0) {
       if (leave.includes("own volition")) {
         window.location.href = "index.html";
       } else {
