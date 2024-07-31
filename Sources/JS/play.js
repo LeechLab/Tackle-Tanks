@@ -97,14 +97,11 @@ async function endless_checker() {
   while (true) {
     await new Promise((resolve) => setTimeout(resolve, 50));
     let data = await ScrapAdder();
-    console.log("(100)");
-    if (data > 0) {
+    if (data > 5) {
       SAVE_LINE("Score", GET_FILE("Score") + data);
     }
     let leave = await Leave();
-    console.log("(105)");
     if (leave.length>0) {
-      console.log("(107)");
       if (leave.includes("own volition")) {
         window.location.href = "index.html";
       } else {
