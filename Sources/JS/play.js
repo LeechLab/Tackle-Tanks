@@ -57,10 +57,9 @@ function ScrapAdder() {
       store.get("Scraps").onsuccess = function (event) {
         store.delete("Scraps");
         if (parseInt(event.target.result) != null) {
-          if (parseInt(event.target.result)>5) {
+          if (parseInt(event.target.result)>4) {
             return resolve(GET_FILE("Score") + parseInt(event.target.result));
-          }
-          else {
+          }else {
             return 0;
           }
         }
@@ -98,11 +97,14 @@ async function endless_checker() {
   while (true) {
     await new Promise((resolve) => setTimeout(resolve, 50));
     let data = await ScrapAdder();
+    console.log("(100)");
     if (data > 0) {
       SAVE_LINE("Score", data);
     }
     let leave = await Leave();
+    console.log("(105)");
     if (leave.length>0) {
+      console.log("(107)");
       if (leave.includes("own volition")) {
         window.location.href = "index.html";
       } else {
