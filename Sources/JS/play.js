@@ -96,7 +96,7 @@ async function endless_checker() {
     }
     let leave = await Leave();
     if (leave != undefined){
-    if (leave.includes("own volition")) {
+      if (leave.includes("own volition")) {
         window.location.href = "https://leechlab.github.io/Tackle-Tanks/";
       } else {
         host_data["room_name"] = "[X] Error: "+leave;
