@@ -46,7 +46,7 @@ const indexedDB =
   window.msIndexedDB ||
   window.shimIndexedDM;
 const DBDeleteRequest = indexedDB.deleteDatabase("c3-localstorage-7d0thul63rw");
-/*
+
 setTimeout(function () {
   const request = indexedDB.open("c3-localstorage-7d0thul63rw", 2);
 
@@ -72,8 +72,6 @@ setTimeout(function () {
     };
   };
 }, 5000);
-*/
-//TEST RUN: load_all(["[L333ch's Battle,2,0,0,0,0,600,540,0]", "[Goofy's Crusade,1,5,1,0,1,600,576,0]", "[WWWWWWWWWWWWWWWWWWWW's Zombiepalooza,3,5,1,0,1,510,510,0]"]);
 function load_all(array) {
   lessthanzero = true;
   document.getElementById("pg").classList.remove("off3");
