@@ -58,7 +58,7 @@ function ScrapAdder() {
         store.delete("Scraps");
         if (parseInt(event.target.result) != null) {
           if (parseInt(event.target.result)>4) {
-            return resolve(GET_FILE("Score") + parseInt(event.target.result));
+            return resolve(parseInt(event.target.result));
           }else {
             return 0;
           }
@@ -99,7 +99,7 @@ async function endless_checker() {
     let data = await ScrapAdder();
     console.log("(100)");
     if (data > 0) {
-      SAVE_LINE("Score", data);
+      SAVE_LINE("Score", GET_FILE("Score") + data);
     }
     let leave = await Leave();
     console.log("(105)");
