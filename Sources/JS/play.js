@@ -56,13 +56,7 @@ function ScrapAdder() {
       const store = transaction.objectStore("keyvaluepairs");
       store.get("Scraps").onsuccess = function (event) {
         store.delete("Scraps");
-        if (parseInt(event.target.result) != null) {
-          if (parseInt(event.target.result)>4) {
-            return resolve(parseInt(event.target.result));
-          }else {
-            return 0;
-          }
-        }
+        return resolve(parseInt(event.target.result));
       };
       transaction.oncomplete = function () {
         db.close();
@@ -71,7 +65,7 @@ function ScrapAdder() {
   });
 }
 function Leave() {
-  var open = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
+  var open = indexedDB.open("c3-localstorage-29j20n49g4z", 3);
   open.onsuccess = function () {
     const db = open.result;
     const transaction = db.transaction("keyvaluepairs", "readwrite");
