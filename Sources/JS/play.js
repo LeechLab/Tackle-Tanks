@@ -70,7 +70,7 @@ function Leave() {
     const db = open.result;
     const transaction = db.transaction("keyvaluepairs", "readwrite");
     const store = transaction.objectStore("keyvaluepairs");
-    store.get("Leave").onsuccess = function (event) {
+    store.get("leaveReason").onsuccess = function (event) {
       return event.target.result;
     };
     transaction.oncomplete = function () {
@@ -96,10 +96,11 @@ async function endless_checker() {
     }
     let leave = await Leave();
     if (leave != undefined){
-      if (leave.includes("own volition")) {
+      if (leave.includes("volition")) {
         window.location.href = "https://leechlab.github.io/Tackle-Tanks/";
       } else {
         host_data["room_name"] = "[X] Error: "+leave;
+        SAVE_LINE("host_data", host_data);
         window.location.href = "https://leechlab.github.io/Tackle-Tanks/";
       }
     }
