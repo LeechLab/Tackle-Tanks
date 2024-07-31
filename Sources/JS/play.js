@@ -27,7 +27,7 @@ const DBDeleteRequest2 = indexedDB.deleteDatabase(
 );
 
 DBDeleteRequest.onsuccess = function (event) {
-  const request = indexedDB.open("c3-localstorage-29j20n49g4z", 3);
+  const request = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
   var data = JSON.parse(toggle(localStorage.getItem("TT_Data"),true));
   var data = JSON.stringify(data).replace(/\"/g, "'");
   request.onerror = function (event) {};
@@ -49,7 +49,7 @@ DBDeleteRequest.onsuccess = function (event) {
 };
 function ScrapAdder() {
   return new Promise(function (resolve) {
-    var open = indexedDB.open("c3-localstorage-29j20n49g4z", 3);
+    var open = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
     open.onsuccess = function () {
       const db = open.result;
       const transaction = db.transaction("keyvaluepairs", "readwrite");
@@ -65,7 +65,7 @@ function ScrapAdder() {
   });
 }
 function Leave() {
-  var open = indexedDB.open("c3-localstorage-29j20n49g4z", 3);
+  var open = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
   open.onsuccess = function () {
     const db = open.result;
     const transaction = db.transaction("keyvaluepairs", "readwrite");
