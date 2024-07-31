@@ -97,8 +97,8 @@ async function endless_checker() {
   while (true) {
     await new Promise((resolve) => setTimeout(resolve, 50));
     let data = await ScrapAdder();
-    if (data > 5) {
-      SAVE_LINE("Score", GET_FILE("Score") + data);
+    if (parseInt(data) > 5) {
+      SAVE_LINE("Score", GET_FILE("Score") + parseInt(data);
     }
     let leave = await Leave();
     if (leave.length>0) {
