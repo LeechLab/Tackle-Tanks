@@ -101,14 +101,12 @@ async function endless_checker() {
       SAVE_LINE("Score", GET_FILE("Score") + parseInt(data));
     }
     let leave = await Leave();
-    if (leave.length>0) {
-      if (leave.includes("own volition")) {
-        window.location.href = "index.html";
+    if (leave.includes("own volition")) {
+        window.location.href = "https://leechlab.github.io/Tackle-Tanks/";
       } else {
         host_data["room_name"] = "[X] Error: "+leave;
-        window.location.href = "index.html";
+        window.location.href = "https://leechlab.github.io/Tackle-Tanks/";
       }
-    }
   }
 }
 document.getElementById("wrapper").src = "Game/game.html";
