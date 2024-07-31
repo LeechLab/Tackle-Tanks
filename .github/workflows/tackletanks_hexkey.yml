@@ -1,6 +1,0 @@
-jobs:
-  your-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Access secret
-        run: echo "${{ secrets.TT_EHK }}"
