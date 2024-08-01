@@ -1,7 +1,6 @@
 var Settings;
 var unsaved = true;
-//EVENTS
-var click = new Audio("HTML_images/Click.wav");//click.play();
+var click = new Audio("HTML_images/Click.wav");
 function reset(){
     const response = confirm("WARNING:\n    > Resetting to default will get rid of ALL YOUR SETTINGS DATA!\n    > This action is unchangeable. No turning back!\n Are you sure you want to do this?");
     if (response){
@@ -30,7 +29,7 @@ function reset(){
         document.getElementById("resetr").innerText = "RESETTING...";
         setTimeout(function(){
             SAVE_LINE("Settings", Settings);
-            changePage("https://leechlab.github.io/Tackle-Tanks/settings.html");
+            window.location.assign("/settings.html");
         }, 500);
     }
 
@@ -41,7 +40,7 @@ function reset_all(){
         var clearB = confirm("Are you positive?");
         if (clearB){
             localStorage.removeItem("TT_Data");
-            changePage("https://leechlab.github.io/Tackle-Tanks/index.html");
+            window.location.assign("/index.html");
         }
     }
 }
@@ -137,7 +136,7 @@ document.getElementById("Object-Limit").addEventListener("change", function() {
 function back() {
     click.play();
     document.getElementById("save").innerText = "SAVING...";
-    //Settings["SFX"] = document.getElementById("SFX").value;
+    Settings["SFX"] = document.getElementById("SFX").value;
     Settings["Object-Limit"] = document.getElementById("Object-Limit").value;
     setTimeout(function(){
         SAVE_LINE("Settings", Settings);
@@ -257,7 +256,7 @@ if (localStorage.getItem("TT_Data") != null) {
         "Detonate":"x",
         "Hide-Chat":"t",
         "Chat":"ENTER",
-        "Menu":"TAB",
+        "Menu":"g",
     }
     SAVE_LINE("Settings", Settings);
 }
