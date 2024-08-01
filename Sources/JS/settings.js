@@ -29,7 +29,7 @@ function reset(){
         document.getElementById("resetr").innerText = "RESETTING...";
         setTimeout(function(){
             SAVE_LINE("Settings", Settings);
-            window.location.assign("/settings.html");
+            changePage("settings.html");
         }, 500);
     }
 
@@ -40,7 +40,7 @@ function reset_all(){
         var clearB = confirm("Are you positive?");
         if (clearB){
             localStorage.removeItem("TT_Data");
-            window.location.assign("/index.html");
+            changePage("index.html");
         }
     }
 }
