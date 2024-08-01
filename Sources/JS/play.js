@@ -112,4 +112,4 @@ async function endless_checker() {
   }
 }
 document.getElementById("wrapper").src = "Game/game.html";
-endless_checker();
+//endless_checker();
