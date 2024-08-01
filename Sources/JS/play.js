@@ -93,11 +93,11 @@ function GET_FILE(id){
 async function endless_checker() {
   while (true) {
     await new Promise((resolve) => setTimeout(resolve, 50));
-   // let data = await ScrapAdder();
-   // if (parseInt(data) > 5) {
-   //   SAVE_LINE("Score", GET_FILE("Score") + parseInt(data));
-   // }
-    let leave = await Leave();
+    let data = await ScrapAdder();
+    if (parseInt(data) > 5) {
+      SAVE_LINE("Score", GET_FILE("Score") + parseInt(data));
+    }
+    let leave;// = await Leave();
     if (leave != undefined){
       if (leave.includes("volition")) {
         host_data["room_name"] = "own volition";
