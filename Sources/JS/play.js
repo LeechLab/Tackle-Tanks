@@ -104,10 +104,12 @@ async function endless_checker() {
     let leave = await Leave();
     if (leave != undefined){
       if (leave.includes("volition")) {
+        await host_data["room_name"] = "own volition";
+        await SAVE_LINE("host_data", host_data);
         window.location.href = "https://leechlab.github.io/Tackle-Tanks/";
       } else {
-        host_data["room_name"] = "[X] Error: "+leave;
-        SAVE_LINE("host_data", host_data);
+        await host_data["room_name"] = "[X] Error: "+leave;
+        await SAVE_LINE("host_data", host_data);
         window.location.href = "https://leechlab.github.io/Tackle-Tanks/";
       }
     }
