@@ -21,3 +21,6 @@ If you have your own ideas, submit an issue to let us know or **create the mod y
 
 ## Wiki
 [TackleTanks.io/guide.html](https://leechlab.github.io/Tackle-Tanks/guide.html)
+
+## Publication
+Tags (such as the v2.3.25 tags) are **not the current version of Tackle Tanks**. These tags show the hot fixes and patch notes of that version. The main branch is constantly being updated.
