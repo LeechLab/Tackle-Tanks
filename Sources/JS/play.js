@@ -97,7 +97,7 @@ async function endless_checker() {
     if (parseInt(data) > 5) {
       SAVE_LINE("Score", GET_FILE("Score") + parseInt(data));
     }
-    let leave;// = await Leave();
+    let leave = await Leave();
     if (leave != undefined){
       if (leave.includes("volition")) {
         host_data["room_name"] = "own volition";
@@ -112,4 +112,4 @@ async function endless_checker() {
   }
 }
 document.getElementById("wrapper").src = "Game/game.html";
-//endless_checker();
+endless_checker();
