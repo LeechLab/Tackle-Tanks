@@ -64,7 +64,6 @@ setTimeout(function () {
     
         const idQuery = store.getAll();
         idQuery.onsuccess = function () {
-          console.log(idQuery.result);
           load_all(idQuery.result);
         };
         idQuery.onerror = function () {
@@ -292,7 +291,7 @@ function private() {
   );
   for (let i = 0; i < game_list.length; i++) {
     if (game_list[i][0].contains(response)) {
-      game_to_join = game_list[i];
+      game_to_join = i;
       room_found = true;
       break;
     }
