@@ -81,10 +81,10 @@ setTimeout(function () {
 
 
 document.getElementById("wrapper").src = "Game/game.html";
+var deleteAll = 0;
 endless_checker();
 function load_all(array) {
   lessthanzero = true;
-  document.getElementById("list").textContent = "";
   document.getElementById("pg").classList.remove("off3");
   document.getElementById("pg").onclick = function () {
     private();
@@ -92,47 +92,57 @@ function load_all(array) {
   document.getElementById("load").style.display = "none";
   document.getElementById("ERROR").style.display = "none";
   players_online = 0;
+  deleteAll += 1;
+  if (deleteAll > 20){
+    deleteAll = 0;
+    if (array.length < 1){
+      document.getElementById("list").textContent = "";
+    }
+  }
   for (let i = 0; i < array.length; i++) {
-    var li = document.createElement("li");
-    li.id = i.toString();
+    document.getElementById("list").textContent = "";
     game_list[i] = array[i].replace(/\[|\]/g, "").split(",");
-    var sserv = GET_FILE("Server");
-    let w = sserv == "americas" && game_list[i][8] == 0;
-    let a = sserv == "europe" && game_list[i][8] == 1;
-    let s = sserv == "asia" && game_list[i][8] == 2;
-    let d = sserv == "africa" && game_list[i][8] == 3;
-    let e = game_list[i][4] == 0;
-    if ((w || a || s || d) && e) {
-      lessthanzero = false;
-      let HMP =
-        "[" +
-        (game_list[i][7] - 500).toString() +
-        "/" +
-        (game_list[i][6] - 500).toString() +
-        "]";
-      s = "5";
-      players_online += game_list[i][7] - 500;
-      if (game_list[i][7] == game_list[i][6]) {
-        s = "6";
+    if (game_list[i].length > 5){
+      var li = document.createElement("li");
+      li.id = i.toString();
+      var sserv = GET_FILE("Server");
+      let w = sserv == "americas" && game_list[i][8] == 0;
+      let a = sserv == "europe" && game_list[i][8] == 1;
+      let s = sserv == "asia" && game_list[i][8] == 2;
+      let d = sserv == "africa" && game_list[i][8] == 3;
+      let e = game_list[i][4] == 0;
+      if ((w || a || s || d) && e) {
+        lessthanzero = false;
+        let HMP =
+          "[" +
+          (game_list[i][7] - 500).toString() +
+          "/" +
+          (game_list[i][6] - 500).toString() +
+          "]";
+        s = "5";
+        players_online += game_list[i][7] - 500;
+        if (game_list[i][7] == game_list[i][6]) {
+          s = "6";
+        }
+        li.innerHTML =
+          '<div class="list_grid"><h' +
+          s +
+          ">" +
+          game_list[i][0].replace(/\?/g, "'") +
+          "</h" +
+          s +
+          "><h" +
+          s +
+          ' class="player_count_area">' +
+          HMP +
+          "</h" +
+          s +
+          "></div>";
+        li.onclick = function () {
+          changeGame(i.toString());
+        };
+        document.getElementById("list").appendChild(li);
       }
-      li.innerHTML =
-        '<div class="list_grid"><h' +
-        s +
-        ">" +
-        game_list[i][0].replace(/\?/g, "'") +
-        "</h" +
-        s +
-        "><h" +
-        s +
-        ' class="player_count_area">' +
-        HMP +
-        "</h" +
-        s +
-        "></div>";
-      li.onclick = function () {
-        changeGame(i.toString());
-      };
-      document.getElementById("list").appendChild(li);
     }
   }
   document.getElementById("po").innerHTML =
