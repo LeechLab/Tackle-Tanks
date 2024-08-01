@@ -93,7 +93,7 @@ if (ss < 1) {
     document.getElementById("scraps").innerHTML = ss;
 }
 var server_error = GET_FILE("host_data")["room_name"];
-if (server_error != "own volition"){
+if (server_error.includes("[X] Error")){
     document.getElementById("username-error").style.visibility = "visible";
     document.getElementById("username-error").innerHTML = server_error;
 }
