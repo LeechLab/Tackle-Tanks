@@ -26,7 +26,7 @@ const DBDeleteRequest = indexedDB.deleteDatabase("c3-localstorage-29j20n49g4z");
 const DBDeleteRequest2 = indexedDB.deleteDatabase(
   "c3-localstorage-7d0thul63rw"
 );
-/*
+
 DBDeleteRequest.onsuccess = function (event) {
   const request = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
   var data = DATA;
@@ -48,6 +48,7 @@ DBDeleteRequest.onsuccess = function (event) {
     };
   };
 }
+/*
 function ScrapAdder() {
   return new Promise(function (resolve) {
     var open = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
