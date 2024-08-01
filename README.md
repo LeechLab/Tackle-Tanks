@@ -22,7 +22,7 @@ If you have your own ideas, submit an issue to let us know or **create the mod y
 ## Wiki
 [TackleTanks.io/guide.html](https://leechlab.github.io/Tackle-Tanks/guide.html)
 
-## PATCH NOTES FOR CURRENT VERSION (v2.3.25)
+## Tackle Tanks (v2.3.25): Release Notes
 
 **Tank Updates:**
 Due to uneven advantages in various combat, multiple tanks have received appropriate adjustment.
