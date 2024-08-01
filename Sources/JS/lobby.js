@@ -7,20 +7,21 @@ document.getElementById("noone").style.display = "none";
 function changePage(path) {
   if (path == "play.html") {
     var host_data = {
-      com: "0",
-      ms: "0",
-      sm: "0",
-      gm: "0",
-      tl: 0,
-      noppt: 0,
-      syt: false,
-      at: "0",
-      bots: false,
-      ds: false,
-      hm: false,
-      ppg: false,
-      supposed_2_B_peer: true,
-      room_name:
+      'com': '0',
+      'ms': '0',
+      'sm':'0',
+      'gm':'0',
+      'tl':0,
+      'noppt': 0,
+      'nobts': 0,
+      'syt':true,
+      'at': '0',
+      'changeTanks': true,
+      'ds':false,
+      'hm': true,
+      'ppg': true,
+      'supposed_2_B_peer': true,
+      'room_name':
         game_list[game_to_join][0].toString() +
         "," +
         game_list[game_to_join][1].toString() +
@@ -77,9 +78,6 @@ setTimeout(function () {
     }
   }
 }, 5000);
-
-
-document.getElementById("wrapper").src = "Game/game.html";
 var deleteAll = 0;
 endless_checker();
 function load_all(array) {
