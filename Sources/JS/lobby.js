@@ -154,7 +154,8 @@ function load_all(array) {
 }
 function changeGame(n) {
   click.play();
-  game_to_join = n;
+  n = parseInt(n);
+  game_to_join = parseInt(n);
   document.getElementById("h4").style.visibility = "hidden";
   document.getElementById("jg").classList.remove("off");
   document.getElementById("jg").classList.remove("on2");
@@ -290,7 +291,7 @@ function private() {
     "PRIVATE ROOM:\n- If you clicked here by mistake, click cancel\n- If you want to create your own private game, click 'Host Game'\n- Otherwise,\nENTER ROOM CODE:"
   );
   for (let i = 0; i < game_list.length; i++) {
-    if (game_list[i][0].contains(response)) {
+    if (game_list[i][0].includes(response)) {
       game_to_join = i;
       room_found = true;
       break;
