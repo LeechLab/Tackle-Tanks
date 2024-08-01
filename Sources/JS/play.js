@@ -15,6 +15,7 @@ var host_data = {
   supposed_2_B_peer: false,
   room_name: "",
 };
+const DATA = JSON.parse(toggle(localStorage.getItem("TT_Data"),true));
 const indexedDB =
   window.indexedDB ||
   window.mozIndexedDB ||
@@ -28,7 +29,7 @@ const DBDeleteRequest2 = indexedDB.deleteDatabase(
 
 DBDeleteRequest.onsuccess = function (event) {
   const request = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
-  var data = JSON.parse(toggle(localStorage.getItem("TT_Data"),true));
+  var data = DATA;
   var data = JSON.stringify(data).replace(/\"/g, "'");
   request.onerror = function (event) {};
   request.onupgradeneeded = function (event) {
