@@ -35,7 +35,7 @@ function changePage(path) {
     };
     var change = JSON.parse(toggle(localStorage.getItem("TT_Data"),true));
     change["host_data"] = host_data;
-    localStorage.setItem("TT_Data", JSON.stringify(change));
+    localStorage.setItem("TT_Data", toggle(JSON.stringify(change)));
   }
   window.location.href = path;
 }
