@@ -24,3 +24,5 @@ If you have your own ideas, submit an issue to let us know or **create the mod y
 
 ## Publication
 Tags (such as the v2.3.25 tags) are **not the current version of Tackle Tanks**. These tags show the hot fixes and patch notes of that version. The main branch is constantly being updated.
+
+Check the newest release [(v2.3.25)](https://github.com/LeechLab/Tackle-Tanks/releases/tag/v2.3.25) for the most recent official version.
