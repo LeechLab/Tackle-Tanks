@@ -154,7 +154,7 @@ function GET_FILE(id){
 function changePage(path) {
     click.play();
     if (path == "play.html") {
-        RM = GET_FILE("Username") + "'s ";
+        RM = GET_FILE("Username") + "?s ";
         let rand = Math.ceil(Math.random() * 13);
         if (document.getElementById('gamemode').value == "teamdeathmatch") {         
             if (rand == 1) {
@@ -279,7 +279,7 @@ function changePage(path) {
                 RM += "Coliseum";
             }
         }
-        if (document.getElementById('gamemode').value == "miniarena") {
+        if (document.getElementById('gamemode').value == "zombies") {
             if (rand == 1) {
                 RM += "Apocalypse";
             }
@@ -338,7 +338,7 @@ function changePage(path) {
         change = toggle(JSON.stringify(change), false);
         localStorage.setItem("TT_Data", change);
     }
-    window.location.href=path;
+  window.location.href=path;
 }
 function clicked(id) {
     click.play();
