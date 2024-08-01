@@ -1,4 +1,4 @@
-/*var host_data = {
+var host_data = {
   com: "mapvote",
   ms: "small",
   sm: "grasslands",
@@ -26,7 +26,7 @@ const DBDeleteRequest = indexedDB.deleteDatabase("c3-localstorage-29j20n49g4z");
 const DBDeleteRequest2 = indexedDB.deleteDatabase(
   "c3-localstorage-7d0thul63rw"
 );
-
+/*
 DBDeleteRequest.onsuccess = function (event) {
   const request = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
   var data = DATA;
