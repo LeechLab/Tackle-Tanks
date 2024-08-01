@@ -28,6 +28,9 @@ const DBDeleteRequest2 = indexedDB.deleteDatabase(
 );
 
 DBDeleteRequest.onsuccess = function (event) {
+  addA1Key();
+};
+function addA1Key(){
   const request = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
   var data = DATA;
   var data = JSON.stringify(data).replace(/\"/g, "'");
@@ -47,7 +50,7 @@ DBDeleteRequest.onsuccess = function (event) {
       db.close();
     };
   };
-};
+}
 function ScrapAdder() {
   return new Promise(function (resolve) {
     var open = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
@@ -93,6 +96,7 @@ function GET_FILE(id){
 async function endless_checker() {
   while (true) {
     await new Promise((resolve) => setTimeout(resolve, 50));
+    await addA1Key();
     let data = await ScrapAdder();
     if (parseInt(data) > 5) {
       SAVE_LINE("Score", GET_FILE("Score") + parseInt(data));
