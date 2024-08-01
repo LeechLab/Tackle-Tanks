@@ -24,7 +24,7 @@ function reset(){
             "Detonate":"x",
             "Hide-Chat":"t",
             "Chat":"ENTER",
-            "Menu":"TAB",
+            "Menu":"g",
         }
         document.getElementById("resetr").innerText = "RESETTING...";
         setTimeout(function(){
