@@ -65,18 +65,20 @@ function ScrapAdder() {
   });
 }
 function Leave() {
-  var open = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
-  open.onsuccess = function () {
-    const db = open.result;
-    const transaction = db.transaction("keyvaluepairs", "readwrite");
-    const store = transaction.objectStore("keyvaluepairs");
-    store.get("leaveReason").onsuccess = function (event) {
-      return event.target.result;
+  return new Promise(function (resolve) {
+    var open = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
+    open.onsuccess = function () {
+      const db = open.result;
+      const transaction = db.transaction("keyvaluepairs", "readwrite");
+      const store = transaction.objectStore("keyvaluepairs");
+      store.get("leaveReason").onsuccess = function (event) {
+        return resolve(event.target.result);
+      };
+      transaction.oncomplete = function () {
+        db.close();
+      };
     };
-    transaction.oncomplete = function () {
-      db.close();
-    };
-  };
+  });
 }
 function SAVE_LINE(id, data){
   var change = JSON.parse(toggle(localStorage.getItem("TT_Data"),true));
@@ -91,12 +93,10 @@ async function endless_checker() {
   while (true) {
     await new Promise((resolve) => setTimeout(resolve, 50));
     let data = await ScrapAdder();
-    console.log(data);
     if (parseInt(data) > 5) {
       SAVE_LINE("Score", GET_FILE("Score") + parseInt(data));
     }
     let leave = await Leave();
-    console.log(leave);
     if (leave != undefined){
       if (leave.includes("volition")) {
         window.location.href = "https://leechlab.github.io/Tackle-Tanks/";
