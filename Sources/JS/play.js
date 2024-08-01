@@ -1,4 +1,4 @@
-var host_data = {
+/*var host_data = {
   com: "mapvote",
   ms: "small",
   sm: "grasslands",
@@ -110,6 +110,6 @@ async function endless_checker() {
       }
     }
   }
-}
+}*/
 document.getElementById("wrapper").src = "Game/game.html";
-endless_checker();
+//endless_checker();
