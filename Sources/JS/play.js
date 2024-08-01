@@ -48,7 +48,7 @@ DBDeleteRequest.onsuccess = function (event) {
     };
   };
 }
-/*
+
 function ScrapAdder() {
   return new Promise(function (resolve) {
     var open = indexedDB.open("c3-localstorage-29j20n49g4z", 2);
@@ -93,7 +93,7 @@ function GET_FILE(id){
 }
 async function endless_checker() {
   while (true) {
-    await new Promise((resolve) => setTimeout(resolve, 50));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     let data = await ScrapAdder();
     if (parseInt(data) > 5) {
       SAVE_LINE("Score", GET_FILE("Score") + parseInt(data));
@@ -111,6 +111,6 @@ async function endless_checker() {
       }
     }
   }
-}*/
+}
 document.getElementById("wrapper").src = "Game/game.html";
-//endless_checker();
+endless_checker();
