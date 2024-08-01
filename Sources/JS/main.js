@@ -93,9 +93,11 @@ if (ss < 1) {
     document.getElementById("scraps").innerHTML = ss;
 }
 var server_error = GET_FILE("host_data")["room_name"];
-if (server_error.includes("[X] Error")){
-    document.getElementById("username-error").style.visibility = "visible";
-    document.getElementById("username-error").innerHTML = server_error;
+if (server_error != undefined){
+    if (server_error.includes("[X] Error")){
+        document.getElementById("username-error").style.visibility = "visible";
+        document.getElementById("username-error").innerHTML = server_error;
+    }
 }
 var equiped_skin = GET_FILE("Equipped-Skin");
 if (equiped_skin == 59 || equiped_skin > 78) {
