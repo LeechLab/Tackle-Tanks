@@ -48,32 +48,43 @@ const indexedDB =
 const DBDeleteRequest = indexedDB.deleteDatabase("c3-localstorage-7d0thul63rw");
 
 setTimeout(function () {
-  const request = indexedDB.open("c3-localstorage-7d0thul63rw", 2);
-
-  request.onerror = function (event) {
-    document.getElementById("ERROR").style.display = "block";
-    document.getElementById("load").style.display = "none";
-  };
-  request.onsuccess = function () {
-    const db = request.result;
-    const transaction = db.transaction("keyvaluepairs", "readonly");
-    const store = transaction.objectStore("keyvaluepairs");
-
-    const idQuery = store.getAll();
-    idQuery.onsuccess = function () {
-      load_all(idQuery.result);
-    };
-    idQuery.onerror = function () {
-      document.getElementById("ERROR").style.display = "block";
-      document.getElementById("load").style.display = "none";
-    };
-    transaction.oncomplete = function () {
-      db.close();
-    };
-  };
+  endless_checker();
+  async function endless_checker() {
+    while (true) {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      const request = indexedDB.open("c3-localstorage-7d0thul63rw", 2);
+      request.onerror = function (event) {
+        document.getElementById("ERROR").style.display = "block";
+        document.getElementById("load").style.display = "none";
+      };
+      request.onsuccess = function () {
+        const db = request.result;
+        const transaction = db.transaction("keyvaluepairs", "readonly");
+        const store = transaction.objectStore("keyvaluepairs");
+    
+        const idQuery = store.getAll();
+        idQuery.onsuccess = function () {
+          console.log(idQuery.result);
+          load_all(idQuery.result);
+        };
+        idQuery.onerror = function () {
+          document.getElementById("ERROR").style.display = "block";
+          document.getElementById("load").style.display = "none";
+        };
+        transaction.oncomplete = function () {
+          db.close();
+        };
+      };
+    }
+  }
 }, 5000);
+
+
+document.getElementById("wrapper").src = "Game/game.html";
+endless_checker();
 function load_all(array) {
   lessthanzero = true;
+  document.getElementById("list").textContent = "";
   document.getElementById("pg").classList.remove("off3");
   document.getElementById("pg").onclick = function () {
     private();
@@ -82,7 +93,7 @@ function load_all(array) {
   document.getElementById("ERROR").style.display = "none";
   players_online = 0;
   for (let i = 0; i < array.length; i++) {
-    let li = document.createElement("li");
+    var li = document.createElement("li");
     li.id = i.toString();
     game_list[i] = array[i].replace(/\[|\]/g, "").split(",");
     var sserv = GET_FILE("Server");
@@ -107,8 +118,8 @@ function load_all(array) {
       li.innerHTML =
         '<div class="list_grid"><h' +
         s +
-        ">" +mod+
-        game_list[i][0] +
+        ">" +
+        game_list[i][0].replace(/\?/g, "'") +
         "</h" +
         s +
         "><h" +
@@ -128,6 +139,8 @@ function load_all(array) {
     "Players Online: " + players_online.toString();
   if (lessthanzero) {
     document.getElementById("noone").style.display = "block";
+  } else {
+    document.getElementById("noone").style.display = "none";
   }
 }
 function changeGame(n) {
