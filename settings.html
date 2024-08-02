@@ -321,6 +321,18 @@
               </button>
             </div>
             <div class="SettingsEdit grid">
+              Image Quality:<br />Lower resolutions increases your frames and memory
+              <button
+                class="setEdit"
+                id="Image-Quality"
+                type="button"
+                onmouseover="this.style.cursor='pointer'"
+                onclick="edit('Image-Quality')"
+              >
+                Medium
+              </button>
+            </div>
+            <div class="SettingsEdit grid">
               OBJECT LIMIT (800 to 1500):<br />
               (Entering 0 means there is no limit) <input type="number"
               id="Object-Limit" class="clones" step="1" value:"0" min="800"
