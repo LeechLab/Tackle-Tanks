@@ -150,18 +150,10 @@ document.getElementById("Image-Quality").addEventListener("click", function() {
     }
     document.getElementById("Image-Quality").innerText =Settings["Image-Quality"];
 });
-function back() {
-    click.play();
-    document.getElementById("save").innerText = "SAVING...";
-   // Settings["SFX"] = document.getElementById("SFX").value;
-    Settings["Object-Limit"] = document.getElementById("Object-Limit").value;
-    setTimeout(function(){
-        SAVE_LINE("Settings", Settings);
-        changePage("index.html");
-    }, 500);
-}
 function changePage(path) {
     click.play();
+    Settings["Object-Limit"] = document.getElementById("Object-Limit").value;
+    SAVE_LINE("Settings", Settings);
     window.location.href=path;
 }
 function edit(id) {
