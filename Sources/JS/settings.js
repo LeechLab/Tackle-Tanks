@@ -139,18 +139,16 @@ document.getElementById("Object-Limit").addEventListener("change", function() {
     }
 });
 document.getElementById("Image-Quality").addEventListener("click", function() {
-    if (Settings["Image-Quality"] == "High"){
+     if (Settings["Image-Quality"] == "High"){
         Settings["Image-Quality"] = "Low";
-        document.getElementById("Image-Quality").innerHTML = "Low";
     }
-    if (Settings["Image-Quality"] == "Medium"){
+    else if (Settings["Image-Quality"] == "Medium"){
         Settings["Image-Quality"] = "High";
-        document.getElementById("Image-Quality").innerHTML = "High";
     }
-    if (Settings["Image-Quality"] == "Low"){
+    else if(Settings["Image-Quality"] == "Low"){
         Settings["Image-Quality"] = "Medium";
-        document.getElementById("Image-Quality").innerHTML == "Medium";
     }
+    document.getElementById("Image-Quality").innerText =Settings["Image-Quality"];
 });
 function back() {
     click.play();
