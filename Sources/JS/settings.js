@@ -125,6 +125,9 @@ function waitingKeypress(id, original){
             }else{
                 document.getElementById(id).innerText = original;
             };
+            if (document.getElementById(id).innerText.length <2){
+                document.getElementById(id).innerText = document.getElementById(id).innerText.toLowerCase();
+            }
             resolve();
         }
     });
