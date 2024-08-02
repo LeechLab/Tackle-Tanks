@@ -124,7 +124,7 @@ h2{
 h3{
     font-size:120%;
     font-weight: 500;
-    color: var(--button-border);
+    color: #eeeeee;
     text-shadow: -2px 2px #333333a0;
 }
 h4{
