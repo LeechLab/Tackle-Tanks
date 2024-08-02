@@ -12,6 +12,7 @@ function reset(){
             "Show-FPS": true,
             "Effects": true,
             "Particles": true,
+            "Image-Quality":"medium",
             "Object-Limit":0,
             "Move-Up":"w",
             "Move-Down":"s",
@@ -133,6 +134,15 @@ document.getElementById("Object-Limit").addEventListener("change", function() {
         document.getElementById("Object-Limit").value = 0;
     }
 });
+document.getElementById("Image-Quality").addEventListener("click", function() {
+    if (document.getElementById("Image-Quality").innerHTML == "medium"){
+        document.getElementById("Image-Quality").innerHTML = "high"
+    }else if (document.getElementById("Image-Quality").innerHTML == "high"){
+        document.getElementById("Image-Quality").innerHTML = "low"
+    }else{
+        document.getElementById("Image-Quality").innerHTML == "medium"
+    }
+});
 function back() {
     click.play();
     document.getElementById("save").innerText = "SAVING...";
@@ -221,7 +231,8 @@ if (localStorage.getItem("TT_Data") != null) {
     if (!Settings["Show-FPS"]){
         document.getElementById("Show-FPS").innerText = "Hide";
     }
-    //document.getElementById("SFX").value = Settings["SFX"];
+    document.getElementById("SFX").value = Settings["SFX"];
+    document.getElementById("Image-Quality").innerText = Settings["Image-Quality"];
     document.getElementById("Object-Limit").value = Settings["Object-Limit"];
     document.getElementById("Move-Up").innerText = Settings["Move-Up"];
     document.getElementById("Move-Down").innerText = Settings["Move-Down"];
@@ -244,6 +255,7 @@ if (localStorage.getItem("TT_Data") != null) {
         "Show-FPS": true,
         "Effects": true,
         "Particles": true,
+        "Image-Quality":"medium",
         "Object-Limit":0,
         "Move-Up":"w",
         "Move-Down":"s",
