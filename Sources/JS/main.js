@@ -121,6 +121,7 @@ function checkTTDATA() {
                 "Show-FPS": true,
                 "Effects": true,
                 "Particles": true,
+                "Image-Quality": "Medium",
                 "Object-Limit": 0,
                 "Move-Up": "w",
                 "Move-Down": "s",
