@@ -117,6 +117,7 @@ function load_all(array) {
           (game_list[i][6] - 500).toString() +
           "]";
         s = "5";
+        game_list[i][0] = game_list[i][0].replace("?","'");
         players_online += game_list[i][7] - 500;
         if (game_list[i][7] == game_list[i][6]) {
           s = "6";
@@ -125,7 +126,7 @@ function load_all(array) {
           '<div class="list_grid"><h' +
           s +
           ">" +
-          game_list[i][0].replace("?", "'")+
+          game_list[i][0]+
           "</h" +
           s +
           "><h" +
