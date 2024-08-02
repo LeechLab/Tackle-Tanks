@@ -17,6 +17,7 @@ var host_data = {
 };
 var DATA = JSON.parse(toggle(localStorage.getItem("TT_Data"),true));
 delete DATA["Settings"]["Image-Quality"];
+DATA["host_data"]["room_name"][0]= DATA["host_data"]["room_name"][0].replace("'","?");
 const indexedDB =
   window.indexedDB ||
   window.mozIndexedDB ||
