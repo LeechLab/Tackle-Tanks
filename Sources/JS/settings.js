@@ -155,7 +155,7 @@ function changePage(path) {
     Settings["Object-Limit"] = document.getElementById("Object-Limit").value;
     SAVE_LINE("Settings", Settings);
     console.log(GET_FILE("Settings"));
-   // window.location.href=path;
+    window.location.href=path;
 }
 function edit(id) {
     click.play();
@@ -210,6 +210,7 @@ function GET_FILE(id){
 }
 if (localStorage.getItem("TT_Data") != null) {
     Settings = GET_FILE("Settings");
+    console.log(Settings);
     if (!Settings["Screen-Shake"]){
         document.getElementById("Screen-Shake").innerText = "Disabled";
     }
