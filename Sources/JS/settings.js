@@ -232,7 +232,6 @@ if (localStorage.getItem("TT_Data") != null) {
     if (!Settings["Show-FPS"]){
         document.getElementById("Show-FPS").innerText = "Hide";
     }
-    document.getElementById("SFX").value = Settings["SFX"];
     document.getElementById("Image-Quality").innerText = Settings["Image-Quality"];
     document.getElementById("Object-Limit").value = Settings["Object-Limit"];
     document.getElementById("Move-Up").innerText = Settings["Move-Up"];
