@@ -153,7 +153,7 @@ document.getElementById("Image-Quality").addEventListener("click", function() {
 function back() {
     click.play();
     document.getElementById("save").innerText = "SAVING...";
-    Settings["SFX"] = document.getElementById("SFX").value;
+   // Settings["SFX"] = document.getElementById("SFX").value;
     Settings["Object-Limit"] = document.getElementById("Object-Limit").value;
     setTimeout(function(){
         SAVE_LINE("Settings", Settings);
