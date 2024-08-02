@@ -12,7 +12,7 @@ function reset(){
             "Show-FPS": true,
             "Effects": true,
             "Particles": true,
-            "Image-Quality":"medium",
+            "Image-Quality":"Medium",
             "Object-Limit":0,
             "Move-Up":"w",
             "Move-Down":"s",
@@ -135,10 +135,10 @@ document.getElementById("Object-Limit").addEventListener("change", function() {
     }
 });
 document.getElementById("Image-Quality").addEventListener("click", function() {
-    if (document.getElementById("Image-Quality").innerHTML == "Medium"){
+    if (Settings["Image-Quality"] == "Medium"){
         Settings["Image-Quality"] = "High";
         document.getElementById("Image-Quality").innerHTML = "High";
-    }else if (document.getElementById("Image-Quality").innerHTML == "High"){
+    }else if (Settings["Image-Quality"] == "High"){
         Settings["Image-Quality"] = "Low";
         document.getElementById("Image-Quality").innerHTML = "Low";
     }else{
@@ -258,7 +258,7 @@ if (localStorage.getItem("TT_Data") != null) {
         "Show-FPS": true,
         "Effects": true,
         "Particles": true,
-        "Image-Quality":"medium",
+        "Image-Quality":"Medium",
         "Object-Limit":0,
         "Move-Up":"w",
         "Move-Down":"s",
