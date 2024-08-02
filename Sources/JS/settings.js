@@ -136,13 +136,13 @@ document.getElementById("Object-Limit").addEventListener("change", function() {
 });
 document.getElementById("Image-Quality").addEventListener("click", function() {
     if (document.getElementById("Image-Quality").innerHTML == "Medium"){
-        Settings[id] = "High";
+        Settings["Image-Quality"] = "High";
         document.getElementById("Image-Quality").innerHTML = "High";
     }else if (document.getElementById("Image-Quality").innerHTML == "High"){
-        Settings[id] = "Low";
+        Settings["Image-Quality"] = "Low";
         document.getElementById("Image-Quality").innerHTML = "Low";
     }else{
-        Settings[id] = "Medium";
+        Settings["Image-Quality"] = "Medium";
         document.getElementById("Image-Quality").innerHTML == "Medium";
     }
 });
