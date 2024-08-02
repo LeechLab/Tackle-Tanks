@@ -113,6 +113,7 @@ async function endless_checker() {
   }
 }
 const imageQuality = GET_FILE("Settings")["Image-Quality"];
+console.log(imageQuality);
 if (!GET_FILE("host_data")["ds"]){
   if (imageQuality == "High"){
     document.getElementById("wrapper").src = "Game/game.html";
