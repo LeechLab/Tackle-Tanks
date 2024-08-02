@@ -154,7 +154,8 @@ function changePage(path) {
     click.play();
     Settings["Object-Limit"] = document.getElementById("Object-Limit").value;
     SAVE_LINE("Settings", Settings);
-    window.location.href=path;
+    console.log(GET_FILE("Settings"));
+   // window.location.href=path;
 }
 function edit(id) {
     click.play();
