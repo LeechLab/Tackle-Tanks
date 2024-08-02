@@ -126,6 +126,7 @@ function waitingKeypress(id, original){
                 document.getElementById(id).innerText = original;
             };
             if (document.getElementById(id).innerText.length <2){
+                Settings[id] = Settings[id].toLowerCase();
                 document.getElementById(id).innerText = document.getElementById(id).innerText.toLowerCase();
             }
             resolve();
