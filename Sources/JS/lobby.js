@@ -125,7 +125,7 @@ function load_all(array) {
           '<div class="list_grid"><h' +
           s +
           ">" +
-          game_list[i][0].replace(/\?/g, "'") +
+          game_list[i][0].replace("?", "'")+
           "</h" +
           s +
           "><h" +
