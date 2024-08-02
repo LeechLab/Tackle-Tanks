@@ -135,12 +135,15 @@ document.getElementById("Object-Limit").addEventListener("change", function() {
     }
 });
 document.getElementById("Image-Quality").addEventListener("click", function() {
-    if (document.getElementById("Image-Quality").innerHTML == "medium"){
-        document.getElementById("Image-Quality").innerHTML = "high"
-    }else if (document.getElementById("Image-Quality").innerHTML == "high"){
-        document.getElementById("Image-Quality").innerHTML = "low"
+    if (document.getElementById("Image-Quality").innerHTML == "Medium"){
+        Settings[id] = "High";
+        document.getElementById("Image-Quality").innerHTML = "High";
+    }else if (document.getElementById("Image-Quality").innerHTML == "High"){
+        Settings[id] = "Low";
+        document.getElementById("Image-Quality").innerHTML = "Low";
     }else{
-        document.getElementById("Image-Quality").innerHTML == "medium"
+        Settings[id] = "Medium";
+        document.getElementById("Image-Quality").innerHTML == "Medium";
     }
 });
 function back() {
