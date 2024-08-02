@@ -112,5 +112,16 @@ async function endless_checker() {
     }
   }
 }
-document.getElementById("wrapper").src = "Game/game.html";
+const imageQuality = GET_FILE("Settings")["Image-Quality"];
+if (!GET_FILE("host_data")["ds"]){
+  if (imageQuality == "High"){
+    document.getElementById("wrapper").src = "Game/game.html";
+  }else if (imageQuality == "Medium"){
+    document.getElementById("wrapper").src = "Game_MediumQuality/game.html";
+  }else if (imageQuality == "Low"){
+    document.getElementById("wrapper").src = "Game_LowQuality/game.html";
+  }
+}else{
+  document.getElementById("wrapper").src = "Game_DedicatedServer/game.html";
+}
 endless_checker();
