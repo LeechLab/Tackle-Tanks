@@ -15,7 +15,8 @@ var host_data = {
   supposed_2_B_peer: false,
   room_name: "",
 };
-const DATA = JSON.parse(toggle(localStorage.getItem("TT_Data"),true));
+var DATA = JSON.parse(toggle(localStorage.getItem("TT_Data"),true));
+delete DATA["Settings'].Image-Quality;
 const indexedDB =
   window.indexedDB ||
   window.mozIndexedDB ||
