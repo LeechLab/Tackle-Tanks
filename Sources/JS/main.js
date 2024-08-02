@@ -134,7 +134,7 @@ function checkTTDATA() {
                 "Detonate": "x",
                 "Hide-Chat": "t",
                 "Chat": "ENTER",
-                "Menu": "TAB",
+                "Menu": "g",
             },
             "host_data": {
                 "com": "mapvote",
