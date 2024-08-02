@@ -95,17 +95,18 @@ function GET_FILE(id){
 async function endless_checker() {
   while (true) {
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    let data = await ScrapAdder();
-    if (parseInt(data) > 5) {
-      SAVE_LINE("Score", GET_FILE("Score") + parseInt(data));
-    }
     let leave = await Leave();
     if (leave != undefined){
       if (leave.includes("volition")) {
         host_data["room_name"] = "own volition";
         SAVE_LINE("host_data", host_data);
         window.location.href = "index.html";
-      } else {
+      } else if (leave.includes("game done")){
+        let data = await ScrapAdder();
+        if (parseInt(data) > 5) {
+          SAVE_LINE("Score", GET_FILE("Score") + parseInt(data));
+        }
+      }else{
         host_data["room_name"] = "[X] Error: "+leave;
         SAVE_LINE("host_data", host_data);
         window.location.href = "index.html";
