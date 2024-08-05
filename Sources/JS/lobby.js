@@ -110,6 +110,7 @@ function load_all(array) {
       let e = game_list[i][4] == 0;
       if ((w || a || s || d) && e) {
         lessthanzero = false;
+        game_list[i][0] = game_list[i][0].replace("?","'");
         let HMP =
           "[" +
           (game_list[i][7] - 500).toString() +
