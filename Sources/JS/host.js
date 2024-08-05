@@ -154,7 +154,7 @@ function GET_FILE(id){
 function changePage(path) {
     click.play();
     if (path == "play.html") {
-        RM = GET_FILE("Username") + "'s ";
+        RM = GET_FILE("Username") + "?s ";
         let rand = Math.ceil(Math.random() * 13);
         if (document.getElementById('gamemode').value == "teamdeathmatch") {         
             if (rand == 1) {
