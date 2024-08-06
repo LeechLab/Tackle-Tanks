@@ -393,15 +393,6 @@ function change_ms(what){
     if (what =="miniarena"){
         document.getElementById('mapsize').disabled=true;
         host_data["ms"] = "mini";
-    } else {
-        if (what =="lms"){
-            document.getElementById('mapsize').disabled=true;
-            host_data["ms"] = "massive";
-        }else{
-            document.getElementById('mapsize').value = "small";
-            host_data["ms"] = "small";
-            document.getElementById('mapsize').disabled=false;
-        }
     }
 }
 function change_mp(what){
@@ -411,7 +402,7 @@ function change_mp(what){
         document.getElementById('mapsize').disabled = true;
         document.getElementById('startmap').disabled = true;
         document.getElementById('mapvote').disabled = true;
-    } else {
+    } else if (was) {
         was = true;
         document.getElementById('startmap').disabled = false;
         document.getElementById('mapvote').disabled = false;
