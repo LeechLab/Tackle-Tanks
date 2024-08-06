@@ -9,7 +9,7 @@ var host_data = {
     "noppt": 100,
     "nobts": 5,
     "syt":true,
-    "at": "101112131415161718192021222324",
+    "at": "10 11 12 13 14 15 16 17 18 19 20 21 22 23 24",
     "changeTanks": true,
     "ds":false,
     "hm": true,
@@ -321,6 +321,7 @@ function changePage(path) {
             }
         }
         host_data["room_name"] = RM;
+        host_data["at"] = host_data["at"].replace(" ", '');
         if (host_data["gm"] != "teamdeathmatch" && host_data["gm"] != "capturebases") {
             host_data["ds"] = false;
         }
@@ -365,16 +366,16 @@ function clickedB(id) {
 function handleChange(checkbox) {
     click.play();
     if(checkbox.checked == true){
-        if (!host_data["at"].includes((parseInt(checkbox.id.substring(2)) + 10).toString())){
-            host_data["at"] += (parseInt(checkbox.id.substring(2)) + 10).toString();
+        if (!host_data["at"].includes((parseInt(checkbox.id.substring(2)) + 10).toString()+" ")){
+            host_data["at"] += (parseInt(checkbox.id.substring(2)) + 10).toString()+" ";
         }
     }else{
-        if (host_data["at"].includes((parseInt(checkbox.id.substring(2)) + 10).toString())){
-            host_data["at"] = host_data["at"].replace((parseInt(checkbox.id.substring(2)) + 10).toString(), '');
+        if (host_data["at"].includes((parseInt(checkbox.id.substring(2)) + 10).toString()+" ")){
+            host_data["at"] = host_data["at"].replace((parseInt(checkbox.id.substring(2)) + 10).toString()+" ", '');
         }
     }
     if (host_data["at"] == "") {
-        host_data["at"] = (parseInt(checkbox.id.substring(2)) + 10).toString();
+        host_data["at"] = (parseInt(checkbox.id.substring(2)) + 10).toString()+" ";
         checkbox.checked = true;
     }
 }
