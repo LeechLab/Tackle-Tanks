@@ -9,7 +9,7 @@ var host_data = {
     "noppt": 100,
     "nobts": 5,
     "syt":true,
-    "at": "10 11 12 13 14 15 16 17 18 19 20 21 22 23 24",
+    "at": "10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 ",
     "changeTanks": true,
     "ds":false,
     "hm": true,
