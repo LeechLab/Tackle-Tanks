@@ -321,7 +321,7 @@ function changePage(path) {
             }
         }
         host_data["room_name"] = RM;
-        host_data["at"] = host_data["at"].replace(" ", '');
+        host_data["at"] = host_data["at"].replaceAll(" ", '');
         if (host_data["gm"] != "teamdeathmatch" && host_data["gm"] != "capturebases") {
             host_data["ds"] = false;
         }
